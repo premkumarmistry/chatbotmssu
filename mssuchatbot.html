@@ -419,209 +419,269 @@
   })();
 </script>
 
-<!-- ===== Paste from here to </script> before </body> on mssu.ac.in ===== -->
+<!-- ===== PREMIUM REAL DIALOGFLOW CHATBOT ===== -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+<style>
+  /* ===== RT-MSSU PREMIUM CHATBOT ===== */
+  df-messenger {
+    --df-messenger-button-titlebar-color: #173b7a;
+    --df-messenger-button-titlebar-font-color: #ffffff;
+    --df-messenger-chat-background-color: #f8fafc;
+    --df-messenger-font-color: #26344d;
+    --df-messenger-send-icon: #e87516;
+    --df-messenger-user-message: #eaf1ff;
+    --df-messenger-bot-message: #ffffff;
+    --df-messenger-chip-color: #ffffff;
+    --df-messenger-chip-border-color: #cbd7ea;
+    --df-messenger-input-box-color: #ffffff;
+    --df-messenger-input-font-color: #26344d;
+    --df-messenger-input-placeholder-font-color: #8792a6;
+    z-index: 2147483000;
+  }
+
+  /* Premium floating launcher */
+  .rtm-chat-launcher {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 2147482999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 0;
+    padding: 7px 18px 7px 7px;
+    border-radius: 50px;
+    background: linear-gradient(135deg,#173b7a,#24559d);
+    color: #fff;
+    font: 700 14px "Plus Jakarta Sans","Segoe UI",sans-serif;
+    box-shadow: 0 12px 35px rgba(23,59,122,.25);
+    cursor: pointer;
+  }
+
+  .rtm-chat-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,.35);
+  }
+
+  .rtm-chat-avatar img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  .rtm-chat-copy {
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  .rtm-chat-copy strong {
+    display: block;
+    font-size: 14px;
+  }
+
+  .rtm-chat-copy small {
+    display: block;
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: .8;
+  }
+
+  .rtm-online {
+    width: 9px;
+    height: 9px;
+    background: #35c978;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(53,201,120,.16);
+    margin-left: 2px;
+  }
+
+  /* Small welcome bubble */
+  .rtm-chat-hint {
+    position: fixed;
+    right: 25px;
+    bottom: 88px;
+    z-index: 2147482998;
+    background: #fff;
+    color: #26344d;
+    padding: 11px 15px;
+    border-radius: 14px;
+    font: 600 12.5px "Plus Jakarta Sans","Segoe UI",sans-serif;
+    box-shadow: 0 10px 30px rgba(16,40,92,.16);
+    border: 1px solid #e5e9f2;
+    animation: rtmFloat 3s ease-in-out infinite;
+  }
+
+  .rtm-chat-hint:after {
+    content:"";
+    position:absolute;
+    right:24px;
+    bottom:-6px;
+    width:11px;
+    height:11px;
+    background:#fff;
+    border-right:1px solid #e5e9f2;
+    border-bottom:1px solid #e5e9f2;
+    transform:rotate(45deg);
+  }
+
+  @keyframes rtmFloat {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-4px); }
+  }
+
+  /* Desktop Dialogflow window polish */
+  @media (min-width: 601px) {
+    df-messenger {
+      --df-messenger-chat-window-width: 410px;
+      --df-messenger-chat-window-height: 650px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .rtm-chat-launcher {
+      right: 14px;
+      bottom: 14px;
+      padding-right: 15px;
+    }
+
+    .rtm-chat-copy strong { font-size: 13px; }
+    .rtm-chat-copy small { font-size: 10px; }
+
+    .rtm-chat-hint {
+      right: 14px;
+      bottom: 77px;
+      max-width: 220px;
+    }
+  }
+</style>
+
+<div class="rtm-chat-hint">👋 Need help with admissions?</div>
+
+<button class="rtm-chat-launcher" id="rtmChatLauncher" type="button"
+        aria-label="Open RT-MSSU Assistant">
+  <span class="rtm-chat-avatar">
+    <img src="https://mssu.ac.in/wp-content/uploads/2021/01/rtmssu_100-2.png"
+         alt="RT-MSSU">
+  </span>
+  <span class="rtm-chat-copy">
+    <strong>RT-MSSU Assistant</strong>
+    <small>Admissions • Courses • Student Help</small>
+  </span>
+  <span class="rtm-online"></span>
+</button>
+
+<df-messenger
+  id="rtmDialogflow"
+  intent="WELCOME"
+  chat-title="RT-MSSU Assistant"
+  agent-id="8c1028bb-ff9b-4c9d-a809-0d914a3e594f"
+  language-code="en">
+</df-messenger>
+
+<style>
+.rtm-tools {position:fixed;left:18px;bottom:18px;z-index:1000;width:min(350px,calc(100vw - 36px));background:white;color:#26344d;border:1px solid #cad5e5;border-radius:14px;padding:16px;font:14px "Segoe UI",sans-serif;box-shadow:0 8px 30px #173b7a22;max-height:60vh;overflow:auto}
+.rtm-tools summary {cursor:pointer;font-weight:700;color:#173b7a}
+.rtm-tools button {padding:8px 10px;margin:4px 2px;border:1px solid #cad5e5;background:#f5f8ff;border-radius:7px;cursor:pointer;color:#173b7a}
+.rtm-tools pre {white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}
+.rtm-tools p {margin:10px 0;line-height:1.5}
+@media(max-width:600px){.rtm-tools{bottom:90px;max-height:40vh}}
+@media(prefers-reduced-motion:reduce){.rtm-chat-hint{animation:none}}
+</style>
+<details class="rtm-tools" id="rtmTools">
+<summary>Assistant tools &amp; NLP demo</summary>
+<p id="rtmStatus" role="status" aria-live="polite">Loading Dialogflow…</p>
+<button id="rtmSuggestions" type="button" disabled>Show suggested questions</button>
+<button id="rtmExport" type="button" disabled>Download transcript</button>
+<p>Each download includes the latest messages in this tab. Refresh starts a new local record.</p>
+<label><input type="checkbox" id="rtmDemo"> Show live NLP details</label>
+<pre id="rtmNlp" hidden>Ask a question to inspect the real Dialogflow response.</pre>
+</details>
 <script>
 (function () {
-  const CONFIG = {
-    title: "RT-MSSU Assistant",
-    tagline: "Admissions, courses and student help",
-    logo: "https://mssu.ac.in/wp-content/uploads/2021/01/rtmssu_100-2.png",
-    greeting: "Hi, I'm the RT-MSSU assistant. Tell me what you're looking for, or pick a topic below.",
-    suggestions: ["How do I apply?", "Which course suits me?", "Fees and financial aid", "Where are your centres?"],
-    contact: "(+91) 8655946646 / 47"
-  };
-
-  const KB = [{"n":"About University","p":["about mssu","what is mssu","tell me about the university","about rt-mssu","what is skills university","who started mssu","about the college","is mssu government university","about university"],"t":"RT-MSSU (Ratan Tata Maharashtra State Skills University) is Maharashtra's first government-established Skills University. It follows a skills-first approach aligned with NEP, with flexible entry-exit options (certificate, diploma or degree), on-the-job training and strong industry partnerships.","l":[["Read more","https://mssu.ac.in/about-mssu/"]],"c":["Courses","Admissions"]},{"n":"Admissions","p":["admissions","how to apply","admission process","apply for admission","admission open","are admissions open","last date to apply","how can i take admission","application form","2026 admissions","registration","admissions"],"t":"2026 applications are open. You can apply online through the admission portal, and see the admission process page for the steps. For last dates and updates, check Notices.","l":[["Apply now","https://apps.mssu.ac.in/Adm/Login.aspx"],["Admission process","https://mssu.ac.in/admissions-2/"],["Notices","https://mssu.ac.in/notices/"]],"c":["Fees","Eligibility","Courses"]},{"n":"Careers","p":["careers","job openings","vacancy","recruitment at mssu","faculty jobs","work at mssu","hiring","careers"],"t":"Job openings at MSSU are listed here:","l":[["View openings","https://mssu.ac.in/careers-2/"]],"c":["Contact"]},{"n":"Centres","p":["centres","campus","where is the college located","locations","pune campus","thane campus","nagpur centre","navi mumbai centre","kharghar","which cities","campus address","branches","centres"],"t":"RT-MSSU has centres at Kharghar (Navi Mumbai), Pune, Thane and Nagpur, with headquarters at Elphinstone Technical High School, Metro Chowk, Mumbai - 400001.","l":[["Navi Mumbai","https://mssu.ac.in/programs-offered-at-navi-mumbai-centre/"],["Pune","https://mssu.ac.in/mssu-pune-campus/"],["Thane","https://mssu.ac.in/programs-offered-at-thane-centre/"],["Nagpur","https://mssu.ac.in/programs-offered-at-nagpur-centre/"],["Mumbai HQ on map","https://goo.gl/maps/fnwMSggC1mxH1EQ6A"]],"c":["Hostel","Contact"]},{"n":"Certificates","p":["download certificate","certificate download","short term certificate","maharera certificate","get my certificate","generative ai certificate","certificates"],"t":"You can download certificates here:","l":[["Short-term courses","https://apps.mssu.ac.in/stc/DownloadCertificate"],["MahaRERA","https://apps.mssu.ac.in/Application/MahareraLogin.aspx"],["Generative AI course","https://apps.mssu.ac.in/ChatGPT/ChatGPTLogin.aspx"]],"c":[]},{"n":"Contact","p":["contact","phone number","email","address","how to reach you","college address","helpline","contact number","talk to someone","enquiry","callback","contact"],"t":"📞 (+91) 8655946646 / 47\n✉️️ contact@mssu.ac.in\n📍 1st Floor, Elphinstone Technical High School, Metro Chowk, Mumbai - 400001","l":[["Call us","tel:+918655946646"],["Email us","mailto:contact@mssu.ac.in"],["Get directions","https://goo.gl/maps/fnwMSggC1mxH1EQ6A"],["Enquiry form","https://mssu.ac.in/enquiry-form/"]],"c":["Admissions"]},{"n":"Courses","p":["what courses do you offer","list of courses","programs available","courses","which programs are there","available courses","course list","what can i study","programmes","courses"],"t":"RT-MSSU runs programs through four Skill Schools plus short-term certifications: B.Tech, M.Tech, MBA, BBA, B.Sc (Analytics), B.Design / M.Design, BA Psychology (Hons), BSc (MLT), diplomas and certificate courses. Which school are you interested in?","l":[],"c":["Science, Engg & Tech","Management & Commerce","Humanities","Design & Creative","Short-term certificates"]},{"n":"Default Welcome Intent","p":["hi","hello","hey","good morning","good evening","namaste","start","hii","default welcome intent"],"t":"Hello! 👋 Welcome to RT-MSSU, Maharashtra's first Skills University. How can I help you today?","l":[],"c":["Admissions","Courses","Fees","Centres","Placements","Contact"]},{"n":"Eligibility","p":["eligibility","who can apply","eligibility criteria","qualification required","minimum marks","eligibility for bba","eligibility for mtech","eligibility for btech","can arts students apply","12th pass","eligibility"],"t":"Eligibility varies by program. In general: BBA needs 10+2 in any stream; M.Tech needs a B.Tech/B.E. from an AICTE-recognised institute. For exact criteria for your course, check the admission page or ask our team.","l":[["Admission process","https://mssu.ac.in/admissions-2/"],["Enquiry form","https://mssu.ac.in/enquiry-form/"]],"c":["Contact"]},{"n":"Exam Fee","p":["exam fee","examination fee","btech exam fee","mba exam fee","exam fees structure","exam fee"],"t":"Exam fee structures are published per program:","l":[["B.Tech","https://mssu.ac.in/wp-content/uploads/2025/09/Exam-fee-btech.pdf"],["MBA","https://mssu.ac.in/wp-content/uploads/2025/11/610_Examination-Fee-Structure-AY-2025-26.pdf-_.pdf_1.pdf"],["M.Tech","https://mssu.ac.in/wp-content/uploads/2025/09/Exam-fee-mtech.pdf"],["B.Design","https://mssu.ac.in/wp-content/uploads/2026/04/Fee-Structure-B.-Design.pdf"]],"c":[]},{"n":"Exams and Academics","p":["examination","exam","exam schedule","timetable","academic calendar","results","course grid","credit structure","syllabus","notices","circulars","exams and academics"],"t":"Academic information is available here:","l":[["Examination","https://mssu.ac.in/examination/"],["Academic calendars","https://mssu.ac.in/academic-calendars/"],["Timetables","https://mssu.ac.in/timetables/"],["Course grids","https://mssu.ac.in/course-grids/"],["Notices","https://mssu.ac.in/notices/"]],"c":[]},{"n":"Fees","p":["fees","fee structure","what is the fee","how much is the fee","tuition fees","fees details","btech fees","mba fees","mtech fees","bba fees","course fee","fee for 2026","how much does it cost","fees"],"t":"Fees differ by program and year, so please see the official fee structure PDFs below. You can also ask about financial aid.","l":[["Fees 2026-27","https://mssu.ac.in/wp-content/uploads/2026/03/Fee-Structure-A.C.-Year-2026-2027.pdf"],["Fees 2025-26","https://mssu.ac.in/wp-content/uploads/2025/09/fee-structure.pdf"],["B.Design fee","https://mssu.ac.in/wp-content/uploads/2026/04/Fee-Structure-B.-Design.pdf"]],"c":["Scholarships","Exam fee","Admissions"]},{"n":"Goodbye","p":["bye","goodbye","thanks","thank you","see you","ok thanks","that's all","goodbye"],"t":"You're welcome! Best of luck. 😊","l":[],"c":[]},{"n":"Grievance and Committees","p":["grievance","complaint","ragging","anti ragging","internal committee","sc st committee","equal opportunity","harassment","student complaint","grievance and committees"],"t":"RT-MSSU has committees for student welfare and grievances:","l":[["Grievance (SGRC)","https://mssu.ac.in/wp-content/uploads/2026/09/Student-Grievance-Redressal-Committee.pdf"],["Anti-Ragging","https://mssu.ac.in/wp-content/uploads/2026/09/Anti-Ragging_Committee.pdf"],["Internal Committee","https://mssu.ac.in/wp-content/uploads/2026/09/Internal_Committee.pdf"],["Equal Opportunity Cell","https://mssu.ac.in/wp-content/uploads/2026/09/Equal_opportunity_Cell.pdf"]],"c":[]},{"n":"Hostel","p":["hostel","hostel facility","is hostel available","hostel fees","accommodation","residential","boys hostel","girls hostel","stay","hostel"],"t":"The university promotes a residential system for student life. Hostel availability differs by centre, so please confirm with the centre or admissions team.","l":[],"c":["Centres","Contact"]},{"n":"International Jobs","p":["international jobs","jobs abroad","overseas placement","work abroad","international skilling","foreign jobs","international jobs"],"t":"RT-MSSU has an International Jobs & Skilling program for overseas career opportunities. See the page for current programs.","l":[["View programs","https://mssu.ac.in/international-jobs-skilling/"]],"c":["Contact"]},{"n":"Library","p":["library","books","library timing","library facility","library"],"t":"Details about the MSSU Library are here:","l":[["Open library page","https://mssu.ac.in/mssu-library/"]],"c":[]},{"n":"MTech Details","p":["mtech","m.tech","mtech courses","mtech cloud computing","mtech cyber security","mtech data science","mtech ai","mtech iot","postgraduate engineering","mtech duration","mtech details"],"t":"M.Tech is a 2-year job-oriented program: 60% on-the-job skill training and 40% classroom. Specialisations include Cloud Computing & DevOps, Cyber Security, Data Science & AI, and Construction Tech & Management. Eligibility: B.Tech / B.E. from an AICTE-recognised institute.","l":[["Apply now","https://apps.mssu.ac.in/Adm/Login.aspx"],["M.Tech exam fee","https://mssu.ac.in/wp-content/uploads/2025/09/Exam-fee-mtech.pdf"]],"c":["Fees"]},{"n":"Placements","p":["placements","placement record","which companies visit","average package","highest package","campus recruitment","placement cell","jobs after course","internship","on the job training","ojt","placements"],"t":"RT-MSSU has a Placement Cell, and programs include On-the-Job Training (OJT) with industry partners. See the Placement Cell page for current details.","l":[["Placement Cell","https://mssu.ac.in/placement-cell/"],["MoUs","https://mssu.ac.in/mous-of-mssu/"]],"c":["Contact"]},{"n":"Scholarships","p":["scholarship","scholarships available","financial aid","fee concession","how to get scholarship","fee waiver","affordable","education loan","refund policy","scholarships","scholarships"],"t":"RT-MSSU has a financial aid program to keep education affordable. For eligibility and how to apply, please contact the admissions team. The refund policy is available on the website.","l":[["Refund policy","https://mssu.ac.in/wp-content/uploads/2024/04/Refund_Policy.pdf"],["Enquiry form","https://mssu.ac.in/enquiry-form/"]],"c":["Contact"]},{"n":"School Design Creative","p":["design courses","b design","bdesign","animation","game design","game art","product design","fashion design","transport design","m design","creative skills","design & creative","school design creative"],"t":"Design & Creative Skills offers B.Design / M.Design in Animation, Game Design, Game Art, Product Design, Transport & Mobility Design, and B.Design in Fashion Design & Technology.","l":[["School details","https://mssu.ac.in/design-creative-skills/"],["B.Design fee structure","https://mssu.ac.in/wp-content/uploads/2026/04/Fee-Structure-B.-Design.pdf"]],"c":["Admissions"]},{"n":"School Humanities","p":["humanities","psychology","ba psychology","school of humanities","arts courses","language courses","german language","japanese language","hebrew language","school humanities"],"t":"School of Humanities Skills offers BA Psychology (Hons) and certificate courses in foreign languages such as German, Japanese and Hebrew.","l":[["School details","https://mssu.ac.in/school-of-humanities-skills/"]],"c":["Fees","Admissions"]},{"n":"School Management Commerce","p":["management and commerce","mba","bba","business courses","school of management","commerce courses","bba retail","digital marketing course","logistics course","management programs","management & commerce","school management commerce"],"t":"School of Management & Commerce Skills offers MBA, BBA (incl. Retail Management), and skill programs such as BFSI Capital Markets, Digital Marketing, Logistics, Business Analytics and Security Analysis. BBA is open to 10+2 pass students from any stream.","l":[["School details","https://mssu.ac.in/school-of-commerce-management-skills/"]],"c":["Eligibility","Fees"]},{"n":"School Science Engineering Tech","p":["science engineering and technology","engineering courses","btech courses","school of science engineering","tech courses","science engg tech","engineering programs","computer science course","btech cse","btech it","mechatronics","construction technology","science, engg & tech","school science engineering tech"],"t":"School of Science, Engineering & Technology Skills offers B.Tech (Construction Technology & Management, Mechatronics, IT, CSE), M.Tech (Cloud Computing & DevOps, Cyber Security, Data Science & AI, Construction Tech & Management), B.Sc (Analytics), BSc (MLT) and related certificates.","l":[["School details","https://mssu.ac.in/school-of-science-engineering-and-technology-skills/"]],"c":["Eligibility","Fees"]},{"n":"Short Term Certificates","p":["short term courses","certificate courses","short certifications","diploma courses","3 month course","wings program","persistent wings","medical lab technology certificate","digital pathology","sap course","cfd course","short term skilling","short-term certificates","short term certificates"],"t":"MSSU offers short-term skilling certifications, including 3-month medical lab courses, PG Diploma in Digital Marketing, language certificates, and industry programs like Persistent WINGS (Java / .NET Full Stack) for women returning from a career break.","l":[["Browse certifications","https://mssu.ac.in/short-term-skilling-certifications/"],["Apply now","https://apps.mssu.ac.in/Adm/Login.aspx"]],"c":[]},{"n":"Student Portal LMS","p":["student portal","lms","login","learning management system","portal login","how to login to portal","student login","forgot password","student portal lms"],"t":"Here are the student login links:","l":[["Student Portal","https://apps.mssu.ac.in/StudenPortals/Login.aspx"],["LMS","https://lms.mssu.ac.in/login/index.php"]],"c":["Contact"]}];
-  const STOP = new Set("a an the is are was what whats how do does did i you me my of to in for can your about tell and please there it be want need would like know give show which suit".split(" "));
-  const stem = t => t.replace(/(ing|es|s)$/, "");
-  const toks = s => s.toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g, " ").trim().split(" ").filter(t => t && !STOP.has(t)).map(stem);
-  function match(q) {
-    const Q = toks(q); if (!Q.length) return null;
-    let best = null, top = 0;
-    KB.forEach(k => k.p.forEach(p => {
-      const P = toks(p); if (!P.length) return;
-      const o = P.filter(t => Q.includes(t)).length;
-      let s = (2 * o) / (P.length + Q.length);
-      if (P.join(" ") === Q.join(" ")) s = 1;
-      if (s > top) { top = s; best = k; }
-    }));
-    return top >= 0.4 ? best : null;
+  const messenger = document.getElementById('rtmDialogflow');
+  const launcher = document.getElementById('rtmChatLauncher');
+  const hint = document.querySelector('.rtm-chat-hint');
+  const status = document.getElementById('rtmStatus');
+  const nlp = document.getElementById('rtmNlp');
+  const suggestions = document.getElementById('rtmSuggestions');
+  const exportButton = document.getElementById('rtmExport');
+  const transcript = [];
+  let ready = false, started = null, timer;
+  let enteredInput = null;
+  function captureUser(text) {
+    if (typeof text !== 'string' || !text.trim()) return;
+    transcript.push({role:'User', text, time:new Date().toISOString()});
+    exportButton.disabled=false;
   }
-  const FALLBACK = { t: "Sorry, I didn't get that. Pick a topic below, or call " + CONFIG.contact + ".", l: [["Enquiry form", "https://mssu.ac.in/enquiry-form/"]], c: ["Admissions", "Courses", "Fees", "Centres", "Placements", "Contact"] };
-
-  const host = document.createElement("div");
-  document.body.appendChild(host);
-  const root = host.attachShadow({ mode: "open" });
-
-  root.innerHTML = `
-  <style>
-    :host{all:initial}
-    *{box-sizing:border-box}
-    .w{--navy:#14295c;--navy2:#1e3a7a;--saffron:#f08a1c;--ink:#1b2440;--muted:#66708c;--line:#dfe4f0;--bg:#f5f7fc;
-       font-family:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;color:var(--ink);position:fixed;right:20px;bottom:20px;z-index:2147483000}
-    button{font:inherit;cursor:pointer}
-    button:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
-    .launch{display:flex;align-items:center;gap:10px;background:var(--navy);color:#fff;border:0;border-radius:999px;padding:8px 20px 8px 8px;box-shadow:0 10px 30px rgba(20,41,92,.35);font-weight:600;font-size:15px;transition:transform .15s}
-    .launch:hover{transform:translateY(-2px)}
-    .launch .av{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
-    .launch .av img{width:32px;height:32px;object-fit:contain}
-    .launch .dot{width:9px;height:9px;border-radius:50%;background:var(--saffron);box-shadow:0 0 0 0 rgba(240,138,28,.6);animation:pulse 2.4s infinite}
-    @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(240,138,28,0)}100%{box-shadow:0 0 0 0 rgba(240,138,28,0)}}
-    .panel{display:none;flex-direction:column;width:390px;max-width:calc(100vw - 24px);height:600px;max-height:calc(100vh - 40px);background:#fff;border-radius:20px;box-shadow:0 24px 70px rgba(20,41,92,.28);overflow:hidden;border:1px solid var(--line)}
-    .w.open .panel{display:flex;animation:rise .22s ease-out}
-    .w.open .launch{display:none}
-    @keyframes rise{from{opacity:0;transform:translateY(14px) scale(.98)}}
-    header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:16px 16px 18px;display:flex;align-items:center;gap:12px;position:relative}
-    header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--saffron)}
-    header .av{width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center;flex:none}
-    header .av img{width:34px;height:34px;object-fit:contain}
-    header h2{margin:0;font-size:16px;font-weight:700;line-height:1.2}
-    header p{margin:2px 0 0;font-size:12.5px;opacity:.82}
-    header .x{margin-left:auto;background:rgba(255,255,255,.14);border:0;color:#fff;width:34px;height:34px;border-radius:10px;font-size:20px;line-height:1}
-    header .x:hover{background:rgba(255,255,255,.26)}
-    .log{flex:1;overflow-y:auto;padding:18px 14px 8px;background:var(--bg);display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
-    .m{max-width:86%;padding:10px 14px;font-size:14.5px;line-height:1.5;word-wrap:break-word}
-    .m.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:4px 16px 16px 16px}
-    .m.user{align-self:flex-end;background:var(--navy);color:#fff;border-radius:16px 4px 16px 16px}
-    .m a{color:var(--navy2);font-weight:600;text-decoration:underline;text-underline-offset:2px}
-    .m.user a{color:#ffd59a}
-    .m ul{margin:6px 0 2px;padding-left:18px}
-    .m p{margin:0 0 6px}.m p:last-child{margin:0}
-    .typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:13px 16px;display:flex;gap:5px}
-    .typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:b 1.1s infinite}
-    .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-    @keyframes b{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-4px)}}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0 4px}
-    .chip{background:#fff;border:1.5px solid var(--navy2);color:var(--navy2);border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:600}
-    .chip:hover{background:var(--navy2);color:#fff}
-    form{display:flex;align-items:flex-end;gap:8px;padding:10px 12px;border-top:1px solid var(--line);background:#fff}
-    textarea{flex:1;resize:none;border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;font:inherit;font-size:14.5px;max-height:96px;color:var(--ink);background:#fff}
-    textarea:focus{border-color:var(--navy2);outline:none}
-    .send{width:42px;height:42px;border:0;border-radius:12px;background:var(--saffron);color:#fff;display:grid;place-items:center;flex:none}
-    .send:disabled{opacity:.45;cursor:default}
-    footer{font-size:11.5px;color:var(--muted);text-align:center;padding:0 12px 9px;background:#fff}
-    .acts{display:flex;flex-direction:column;gap:6px;align-self:flex-start;width:86%}
-    .acts a{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--navy2);text-decoration:none}
-    .acts a::after{content:"\\2197";color:var(--saffron)}
-    .acts a:hover{border-color:var(--navy2);background:#eef2fc}
-    @media (max-width:480px){
-      .w{right:12px;bottom:12px}
-      .w.open{right:0;bottom:0}
-      .panel{width:100vw;height:100vh;height:100dvh;max-height:none;max-width:none;border-radius:0;border:0}
-      header{padding-top:max(16px,env(safe-area-inset-top))}
-      form{padding-bottom:max(10px,env(safe-area-inset-bottom))}
-      textarea{font-size:16px}
-      .m{max-width:92%}
-      .acts{width:92%}
-      .launch{padding:6px 16px 6px 6px;font-size:14px}
-    }
-    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-  </style>
-  <div class="w">
-    <button class="launch" aria-label="Open chat"><span class="av"><img alt=""></span>Ask RT-MSSU<span class="dot"></span></button>
-    <section class="panel" role="dialog" aria-label="Chat">
-      <header><span class="av"><img alt=""></span><div><h2></h2><p></p></div><button class="x" aria-label="Close chat">&times;</button></header>
-      <div class="log" aria-live="polite"></div>
-      <form><textarea rows="1" placeholder="Type your question..." aria-label="Message"></textarea>
-        <button class="send" aria-label="Send"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></button></form>
-      <footer>Automated assistant. Please verify important details with the university.</footer>
-    </section>
-  </div>`;
-
-  const $ = s => root.querySelector(s);
-  const w = $(".w"), log = $(".log"), ta = $("textarea"), sendBtn = $(".send");
-  root.querySelectorAll("img").forEach(i => i.src = CONFIG.logo);
-  $("h2").textContent = CONFIG.title; $("header p").textContent = CONFIG.tagline;
-
-  let history = [];
-  try {
-    const raw = sessionStorage.getItem("mssu_chat");
-    if (raw) history = JSON.parse(raw) || [];
-  } catch (e) {}
-
-  const save = () => { try { sessionStorage.setItem("mssu_chat", JSON.stringify(history.slice(-20))); } catch (e) {} };
-
-  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  function md(t) {
-    let h = esc(t)
-      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-      .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
-    const blocks = h.split(/\n{2,}/).map(b => {
-      const lines = b.split("\n");
-      if (lines.every(l => /^\s*[-*•]\s+/.test(l))) return "<ul>" + lines.map(l => "<li>" + l.replace(/^\s*[-*•]\s+/, "") + "</li>").join("") + "</ul>";
-      return "<p>" + lines.join("<br>") + "</p>";
-    });
-    return blocks.join("");
+  // Capture at the UI boundary, including suggested-question clicks.
+  messenger.addEventListener('df-user-input-entered', e => {
+    enteredInput=e.detail?.input ?? null;
+    captureUser(enteredInput);
+  });
+  messenger.addEventListener('df-chip-clicked', e => {
+    const text=e.detail?.query;
+    if(text && enteredInput !== text){enteredInput=text;captureUser(text);}
+  });
+  const chips = [{type:'chips',options:[{text:'How can I apply for admission?'},{text:'What courses are available?'},{text:'Tell me about B.Tech'},{text:'What scholarships are available?'},{text:'How can I contact admissions?'}]}];
+  const bootTimer = setTimeout(() => {if(!ready) status.textContent='Dialogflow has not loaded. Check your connection, enable Messenger integration, then refresh.';},15000);
+  function showSuggestions(){
+    if(ready && typeof messenger.renderCustomCard === 'function') messenger.renderCustomCard(chips);
   }
-  const scroll = () => { log.scrollTop = log.scrollHeight; };
-  function add(role, text) {
-    const d = document.createElement("div");
-    d.className = "m " + role;
-    d.innerHTML = role === "bot" ? md(text) : "<p>" + esc(text) + "</p>";
-    log.appendChild(d); scroll(); return d;
-  }
-  function chips(list) {
-    const c = document.createElement("div"); c.className = "chips";
-    list.forEach(t => { const b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.textContent = t; b.onclick = () => { c.remove(); send(t); }; c.appendChild(b); });
-    log.appendChild(c); scroll();
-  }
-  function actions(list) {
-    const c = document.createElement("div"); c.className = "acts";
-    list.forEach(([t, u]) => { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = t; c.appendChild(a); });
-    log.appendChild(c); scroll();
-  }
-  function typing() { const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>"; log.appendChild(t); scroll(); return t; }
-
-  async function reply() {
-    await new Promise(r => setTimeout(r, 500));
-    const last = [...history].reverse().find(m => m.role === "user");
-    return match(last ? (last.content || last.text || "") : "") || FALLBACK;
-  }
-
-  let busy = false;
-  async function send(text) {
-    text = (text || "").trim(); if (!text || busy) return;
-    busy = true; sendBtn.disabled = true; ta.value = ""; ta.style.height = "auto";
-    log.querySelectorAll(".chips").forEach(c => c.remove());
-    add("user", text); history.push({ role: "user", content: text });
-    const t = typing();
-    let out;
-    try { out = await reply(); } catch (e) { out = "I couldn't connect just now. Please try again, or call " + CONFIG.contact + "."; }
-    t.remove(); if (typeof out === "string") out = { t: out };
-    add("bot", out.t); history.push({ role: "assistant", content: out.t }); save();
-    if (out.l && out.l.length) actions(out.l);
-    if (out.c && out.c.length) chips(out.c);
-    busy = false; sendBtn.disabled = false; ta.focus();
-  }
-
-  function start() {
-    log.innerHTML = "";
-    if (history && history.length > 0) {
-      history.forEach(m => add(m.role === "user" ? "user" : "bot", m.content || m.text || ""));
-    } else {
-      add("bot", CONFIG.greeting);
-      chips(CONFIG.suggestions);
-    }
-  }
-
-  let started = false;
-  function open() {
-    w.classList.add("open");
-    if (!started || log.children.length === 0) {
-      started = true;
-      start();
-    }
-    ta.focus();
-  }
-  function close() { w.classList.remove("open"); $(".launch").focus(); }
-  $(".launch").onclick = open; $(".x").onclick = close;
-  root.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
-  $("form").addEventListener("submit", e => { e.preventDefault(); send(ta.value); });
-  ta.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(ta.value); } });
-  ta.addEventListener("input", () => { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 96) + "px"; });
-
-  const f = document.createElement("link"); f.rel = "stylesheet";
-  f.href = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"; document.head.appendChild(f);
+  messenger.addEventListener('df-messenger-loaded', () => {
+    ready = true;clearTimeout(bootTimer);suggestions.disabled=false;
+    status.textContent='Dialogflow loaded. Send a question to test the agent.';
+    showSuggestions();
+  });
+  launcher.addEventListener('click', () => {
+    if(hint) hint.hidden=true;
+    if(!ready){document.getElementById('rtmTools').open=true;return;}
+    // The existing custom launcher depends on Messenger's internal button.
+    // Keep Google's native launcher available as a compatibility fallback.
+    const button=messenger.shadowRoot && messenger.shadowRoot.querySelector('button');
+    if(button) button.click();
+    else {document.getElementById('rtmTools').open=true;status.textContent='Use the Dialogflow chat button in the lower right to open the conversation.';}
+  });
+  suggestions.addEventListener('click',showSuggestions);
+  messenger.addEventListener('df-request-sent', e => {
+    started=performance.now();status.textContent='Waiting for Dialogflow…';clearTimeout(timer);
+    const input=e.detail?.requestBody?.queryInput?.text?.text;
+    if(input && input !== enteredInput) captureUser(input);
+    enteredInput=null;
+    timer=setTimeout(()=>{status.textContent='The reply is taking longer than expected. Check your connection before trying again.';},20000);
+  });
+  messenger.addEventListener('df-response-received', e => {
+    clearTimeout(timer);
+    const response=e.detail?.response;
+    const result=response?.queryResult ?? (Array.isArray(response) ? response[0]?.queryResult : undefined);
+    const elapsed=started===null?null:Math.round(performance.now()-started);started=null;
+    status.textContent=elapsed===null?'Response received.':'Response received in '+elapsed+' ms.';
+    if(!result){nlp.textContent='This integration did not expose queryResult. Inspect the intent in the Dialogflow console.';return;}
+    const texts=result.fulfillmentMessages?.flatMap(m=>m.text?.text || []) || [];
+    if(!texts.length && result.fulfillmentText) texts.push(result.fulfillmentText);
+    texts.forEach(text=>transcript.push({role:'Assistant',text,time:new Date().toISOString()}));
+    if(transcript.length) exportButton.disabled=false;
+    nlp.textContent=JSON.stringify({intent:result.intent?.displayName ?? 'Not exposed',confidence:result.intentDetectionConfidence ?? 'Not exposed',parameters:result.parameters ?? {},contexts:(result.outputContexts || []).map(c=>({name:c.name.split('/').pop(),lifespan:c.lifespanCount})),latencyMs:elapsed},null,2);
+  });
+  messenger.addEventListener('df-messenger-error', () => {clearTimeout(timer);started=null;status.textContent='Could not reach the agent. Check Messenger integration and your connection, then retry.';});
+  document.getElementById('rtmDemo').addEventListener('change',e=>{nlp.hidden=!e.target.checked;});
+  exportButton.addEventListener('click',()=>{
+    if (!transcript.length) {status.textContent='Send a message before downloading a transcript.';return;}
+    const downloadedAt=new Date();
+    // Build a fresh snapshot on EVERY click. Keep history for later exports.
+    const snapshot=transcript.map(message=>({...message}));
+    const text='RT-MSSU Assistant transcript\nDownloaded: '+downloadedAt.toISOString()+'\nMessages: '+snapshot.length+'\nCurrent-tab text only. Rich cards and earlier sessions are excluded.\n\n'+snapshot.map(x=>x.role+': '+x.text).join('\n\n');
+    const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));
+    const a=document.createElement('a');a.href=url;a.download='rt-mssu-transcript-'+downloadedAt.toISOString().replace(/[:.]/g,'-')+'.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  setTimeout(()=>{if(hint)hint.hidden=true;},7000);
 })();
 </script>
 <!-- ===== end of embed code ===== -->
