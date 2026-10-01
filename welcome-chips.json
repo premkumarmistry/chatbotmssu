@@ -1,0 +1,26 @@
+{
+  "richContent": [
+    [
+      {
+        "type": "chips",
+        "options": [
+          {
+            "text": "How can I apply for admission?"
+          },
+          {
+            "text": "What courses are available?"
+          },
+          {
+            "text": "Tell me about B.Tech"
+          },
+          {
+            "text": "What scholarships are available?"
+          },
+          {
+            "text": "How can I contact admissions?"
+          }
+        ]
+      }
+    ]
+  ]
+}
