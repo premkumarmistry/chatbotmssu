@@ -1,4 +1,4 @@
-# 🎓 MSSU Campus Chatbot (chatbotmssu)
+# 🎓 MSSU Campus Chatbot 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
